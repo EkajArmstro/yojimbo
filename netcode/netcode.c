@@ -639,7 +639,7 @@ int netcode_socket_create( struct netcode_socket_t * s, struct netcode_address_t
 
     // create socket
 
-    s->handle = socket( ( address->type == NETCODE_ADDRESS_IPV6 ) ? AF_INET6 : AF_INET, SOCK_DGRAM, IPPROTO_UDP );
+    s->handle = (netcode_socket_handle_t)socket( ( address->type == NETCODE_ADDRESS_IPV6 ) ? AF_INET6 : AF_INET, SOCK_DGRAM, IPPROTO_UDP );
 
 #if NETCODE_PLATFORM == NETCODE_PLATFORM_WINDOWS
     if ( s->handle == INVALID_SOCKET )
